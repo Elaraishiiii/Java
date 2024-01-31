@@ -164,5 +164,3 @@ public class Frazione {
           return r;
       }
 }
-
-// Hello
