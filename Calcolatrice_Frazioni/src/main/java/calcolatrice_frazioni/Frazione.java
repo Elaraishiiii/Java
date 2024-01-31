@@ -164,9 +164,3 @@ public class Frazione {
           return r;
       }
 }
-
-<<<<<<< HEAD
-// HEllo
-=======
-// From Scuola
->>>>>>> 25b975fe50187d0681b6a3041afa823b39ab4f0a
