@@ -163,5 +163,6 @@ public class Frazione {
           r = new Frazione(nn,nd);
           return r;
       }
-   
 }
+
+// Ciao
