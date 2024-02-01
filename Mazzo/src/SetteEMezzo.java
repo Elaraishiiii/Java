@@ -79,5 +79,3 @@ public class SetteEMezzo {
         } while (NVG == 3);
     }
 }
-
-// Bella Dal Pc Della Scuola
