@@ -106,7 +106,7 @@ public class Mazzo {
         }
     }    
     public void Rigenera (){
-         for (int i = 0; i < 10 ; i++)
+        for (int i = 0; i < 10 ; i++)
             v[i] = new Carta(i+1, 'b');
         for (int i = 10; i < 20 ; i++)
             v[i] = new Carta(i-9, 'c');
