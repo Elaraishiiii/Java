@@ -121,5 +121,3 @@ public class Mazzo {
         }
     }
 }
-
-// Bella Dal Pc Della Scuola
