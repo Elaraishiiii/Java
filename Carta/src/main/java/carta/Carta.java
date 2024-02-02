@@ -7,120 +7,136 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Carta {
+
     // Variabili
     private int n;
     private char s; //Seme Carta {'o' -> Ori, 'c' -> Coppe, 's' -> Spade, 'b' -> Bastoni}
     // Costruttore
-    public Carta () {
+
+    public Carta() {
         n = 1;
         s = 'b';
     }
-    
-    public Carta (int n, char s){
-        if ((n<=10)&&(n>=1)) {
+
+    public Carta(int n, char s) {
+        if ((n <= 10) && (n >= 1)) {
             this.n = n;
-        }
-        else
+        } else {
             this.n = 1;
-        if ((s=='0') || (s=='c') || (s=='s') || (s=='b')) {
-            this.s = s;
         }
-        else
+        if ((s == '0') || (s == 'c') || (s == 's') || (s == 'b')) {
+            this.s = s;
+        } else {
             this.s = 'b';
+        }
     }
-    
+
     // Costruttore Copia
-    public Carta (Carta due){
+    public Carta(Carta due) {
         this.n = due.getN();
         this.s = due.getS();
     }
-    
-    public int getN (){
+
+    public int getN() {
         return n;
     }
-    
-    public char getS (){
+
+    public char getS() {
         return s;
     }
-    
+
     public void setCarta(int n, char s) {
-        if ((n<=10)&&(n>=1)) {
+        if ((n <= 10) && (n >= 1)) {
             this.n = n;
-        }
-        else
+        } else {
             this.n = 1;
-        if ((s=='o') || (s=='c') || (s=='s') || (s=='b')) {
-            this.s = s;
         }
-        else
+        if ((s == 'o') || (s == 'c') || (s == 's') || (s == 'b')) {
+            this.s = s;
+        } else {
             this.s = 'b';
+        }
     }
-    
+
     @Override
-    public String toString (){
-    String st = "";
+    public String toString() {
+        String st = "";
         if (n == 1) {
             st = "Asso";
+        } else {
+            st = n + "";
         }
-        else st = n+"";
-        st = switch (s) {
-            case 'o' -> st + " di Ori";
-            case 'c' -> st + " di Coppe";
-            case 's' -> st + " di Spade";
-            case 'b' -> st + " di Bastoni";
-            default -> st + " di Bastoni";
+        switch (s) {
+            case 'o':
+                st += " di Ori";
+                break;
+
+            case 'c':
+                st += " di Coppe";
+                break;
+
+            case 's':
+                st += " di Spade";
+                break;
+
+            case 'b':
+                st += " di Bastoni";
+                break;
+
+            default:
+                st += " di Bastoni";
         };
-    return st;
+        return st;
     }
-    
-    public Boolean Equals (Carta c){
+
+    public Boolean Equals(Carta c) {
         if (n == c.getN() && s == c.getS()) {
             return true;
-        }
-        else 
+        } else {
             return false;
+        }
     }
-    
-    public double getValore (){
+
+    public double getValore() {
         if (n < 8) {
             return n;
-        }
-        else
+        } else {
             return 0.5;
+        }
     }
-    
-    public void setCasuale () {
-        n = (int)(Math.random()*10+1);
-        int seme = (int)(Math.random()*4+1);
+
+    public void setCasuale() {
+        n = (int) (Math.random() * 10 + 1);
+        int seme = (int) (Math.random() * 4 + 1);
         switch (seme) {
             case 1:
                 s = 'o';
                 break;
             case 2:
                 s = 'c';
-                break;    
+                break;
             case 3:
                 s = 's';
                 break;
             case 4:
                 s = 'b';
-                break;  
+                break;
             default:
                 s = 'o';
                 break;
         }
     }
-    
-    public void Disegna (Graphics g, int x, int y) {
+
+    public void Disegna(Graphics g, int x, int y) {
         BufferedImage img = null;
-        String nome = "Carte/Carta"+n+s+".jpg";
+        String nome = "Carte/Carta" + n + s + ".jpg";
         try {
             img = ImageIO.read(new File(nome));
-            g.drawImage(img, x, y, null);        
+            g.drawImage(img, x, y, null);
             System.out.println(img.getHeight());
         } catch (IOException e) {
             System.out.println("");
-        }  
+        }
     }
-    
+
 }
