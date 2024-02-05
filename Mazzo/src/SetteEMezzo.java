@@ -1,11 +1,25 @@
-
 import java.util.Scanner;
 
 public class SetteEMezzo {
+    // Funzione Vittoria
+    public static int vittoria = 0;
+    public static int Vittoria(int NVC, int NVG) {
+        int pc = 0, giocatore = 0;
+        if (NVC == 3) {
+            pc = 1;
+            System.out.println("=================================\nHa Vinto il Pc");
+            return pc;
+        } else if (NVG == 3) {
+            giocatore = 1;
+            System.out.println("=================================\nHa Vinto il Giocatore");
+            return giocatore;
+        } else {
+            return 0;
+        }
+    }
 
     public static void main(String[] args) {
         // Gioco Sette e Mezzo //
-
         // Variabili
         Scanner sc = new Scanner(System.in);
         Mazzo M = new Mazzo();
@@ -81,12 +95,12 @@ public class SetteEMezzo {
                 System.out.println(NPP + " Pareggio");
                 System.out.println(NVG + " Giocatore");
                 System.out.println(NVC + " Computer\n\n==========================================\nNuova Partita\n==========================================");
-                continue;
-            }
-            // If Vittoria Pg
+                vittoria = Vittoria(NVC, NVG);
+
+            } // If Vittoria Pg
             // Punteggio G Minore && Punteggio PC > 7.5
             // Punteggio G Maggiore && Punteggio Giocatore <= 7.5 || Pc > 7.5
-            if ((Pg < Pc && Pc > 7.5) || (Pg > Pc && Pg <= 7.5) || Pc > 7.5) {
+            else if ((Pg < Pc && Pc > 7.5) || (Pg > Pc && Pg <= 7.5) || Pc > 7.5) {
                 System.out.println("Vittoria del Giocatore");
                 NVG++;
                 if (Pc > 7.5) {
@@ -97,19 +111,18 @@ public class SetteEMezzo {
                 System.out.println(NPP + " Pareggio");
                 System.out.println(NVG + " Giocatore");
                 System.out.println(NVC + " Computer\n\n==========================================\nNuova Partita\n==========================================");
-                continue;
-            }
-            // IF Perdita
+                vittoria = Vittoria(NVC, NVG);
+            } // IF Perdita
             // Punteggio Pc Minore && Punteggio G > 7.5
             // Punteggio Pc Maggiore && Punteggio Pc <= 7.5 || Pg > 7.5
-            if ((Pc < Pg && Pg > 7.5) || (Pc > Pg && Pc < 7.5) || Pg > 7.5) {
+            else if ((Pc < Pg && Pg > 7.5) || (Pc > Pg && Pc < 7.5) || Pg > 7.5) {
                 System.out.println("Vittoria del Pc");
                 NVC++;
                 System.out.println(NPP + " Pareggio");
                 System.out.println(NVG + " Giocatore");
                 System.out.println(NVC + " Computer\n\n==========================================\nNuova Partita\n==========================================");
-                continue;
+                vittoria = Vittoria(NVC, NVG);
             }
-        } while (true /*Chi Arriva Prima a 3 Punti*/);
+        } while (vittoria == 0);
     }
 }
