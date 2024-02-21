@@ -133,7 +133,7 @@ public class Carta {
         try {
             img = ImageIO.read(new File(nome));
             g.drawImage(img, x, y, null);
-            System.out.println(img.getHeight());
+           // System.out.println(img.getHeight());
         } catch (IOException e) {
             System.out.println("");
         }

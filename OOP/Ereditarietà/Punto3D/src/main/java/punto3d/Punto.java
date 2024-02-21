@@ -1,9 +1,8 @@
-package punto;
+package punto3d;
 public class Punto { 
     // Attributi
     private double x,y;
     // costruttori (Non ha tipo restituito, si chiama come la classe)
-    
     public Punto(){
         x=0;
         y=0;

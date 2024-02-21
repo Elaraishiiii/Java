@@ -15,7 +15,6 @@ public class SetteEMezzo {
             return giocatore;
         } else {
             return 0;
-           
         }
     }
 
