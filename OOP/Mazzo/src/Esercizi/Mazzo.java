@@ -8,11 +8,11 @@ public class Mazzo {
         //int i; 
         v = new Carta[40];
         for (int i = 0; i < 10 ; i++)
-            v[i] = new Carta(i+1, 'b');
+            v[i] = new Carta(i+1, 'o');
         for (int i = 10; i < 20 ; i++)
             v[i] = new Carta(i-9, 'c');
         for (int i = 20; i < 30 ; i++)
-            v[i] = new Carta(i-19, 'o');
+            v[i] = new Carta(i-19, 'b');
         for (int i = 30; i < 40 ; i++)
             v[i] = new Carta(i-29, 's');
     }
@@ -48,7 +48,7 @@ public class Mazzo {
     public void InserisciBasso (Carta c){
         int nc = Conta();
         if (nc < 40) {
-            v[nc] = c;
+            v[nc-1] = c;
         }
     }
     public Carta EstraiAlto (){
@@ -91,9 +91,10 @@ public class Mazzo {
         }
         return r;
     }
+    
     public void inserisciCaso (Carta c){ // Da Finire
         int nc = Conta();
-        if (nc < 40) {
+        if (nc<40) {
             int pos = (int)(Math.random()*nc);
             for (int i = nc; i > pos; i--) {
                 v[i] = v[i-1];
@@ -101,6 +102,7 @@ public class Mazzo {
             }
         }
     }
+    
     public void Mischia (){
         for (int i = 0; i < 100; i++) {
             InserisciAlto(EstraiCaso());
@@ -108,7 +110,7 @@ public class Mazzo {
         }
     }    
     public void Rigenera (){
-         for (int i = 0; i < 10 ; i++)
+        for (int i = 0; i < 10 ; i++)
             v[i] = new Carta(i+1, 'b');
         for (int i = 10; i < 20 ; i++)
             v[i] = new Carta(i-9, 'c');
