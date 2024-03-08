@@ -4,10 +4,12 @@ import java.awt.Graphics;
 
 public class NewJFrame extends javax.swing.JFrame {
     Graphics g;
+    int cont;
 
     public NewJFrame() {
         initComponents();
         g = this.getGraphics();
+        cont = 0;
     }
 
     @SuppressWarnings("unchecked")
@@ -78,6 +80,26 @@ public class NewJFrame extends javax.swing.JFrame {
         c.Disegna(g, 20, (100+200));
     }//GEN-LAST:event_jButton1MouseClicked
 
+    public void paint (Graphics g){
+        cont++;
+        System.out.println("Cont: "+cont);
+        super.paint(g);
+        Carta v[] = new Carta[4];
+        v[0] = new Carta (7, 'b');
+        v[1] = new Carta (2, 's');
+        v[2] = new Carta (9, 'o');
+        v[3] = new Carta (1, 'c');
+        for (int i = 0; i < v.length; i++) {
+            v[i].Disegna(g, 20+(i*100), 100);
+        }
+        Carta c;
+        String sn = jTextField1.getText();
+        String ss = jTextField2.getText();
+        int n = Integer.parseInt(sn);
+        char s = ss.charAt(0);
+        c = new Carta(n, s);
+        c.Disegna(g, 20, (100+200));
+    }
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
