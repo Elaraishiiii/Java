@@ -1,0 +1,17 @@
+public class GestioneErrore {
+    public static void main(String[] args) {
+
+    /*
+    - Errore di Sintassi (Esecuzione)
+    - Errore Run Time (Esecuzione) -> Quando il programma si interrompe per un errore
+    - Errore logico => Quando il programma non svolge la funzione
+
+    Run Time -> Exception:
+    - ArrayIndexOutOfBoundsException -> Quando si scrivono elementi che non esistono
+    - ArithmeticException -> Quando c'è un calcolo impossibile (ES. Divsione per 0)
+    - IOException -> Errore di Hardware; Devono Essere Gestite
+    - NumberFormatException -> Se una stringa non contiene solo dati numerici e provi a convertirla in un numero, incontrerai questa eccezione
+    - InputMismatchException -> Scanner | Quando il token successivo non può essere tradotto
+    */
+    }
+}
