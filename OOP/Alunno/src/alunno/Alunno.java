@@ -1,25 +1,26 @@
-package studente;
+package alunno;
 import java.util.ArrayList;
 
-
-public class Studente {
-    // Variabili
-    private String Nome, Cognome,DataNascita;
+public class Alunno {
+// Variabili
+    private String Nome, Cognome,DataNascita, LuogodiNascita;
     private ArrayList<String> note = new ArrayList<String>(50);
     private ArrayList<String> voti = new ArrayList<>();
     //private ArrayList<Object> noteq = new ArrayList<>();
     // Costruttori
-    public Studente (){
+    public Alunno (){
         Nome = null;
         Cognome = null;
         DataNascita = null;
+        LuogodiNascita = null;
     }
     
-    public Studente (String Nome, String Cognome, String DataNascita){
+    public Alunno (String Nome, String Cognome, String DataNascita, String LuogodiNascita){
         try {
             this.Nome = Nome;
             this.Cognome = Cognome;
             this.DataNascita = DataNascita;
+            this.LuogodiNascita = LuogodiNascita;
         } catch (Exception e) {
             System.out.println("Errore");
         }
@@ -37,9 +38,13 @@ public class Studente {
         return DataNascita;
     }
     
+    public String getLuogoNascita (){
+        return LuogodiNascita;
+    }
+    
     public String visualizzaStudente (){
         String s = "";
-        s = "Nome: "+ this.getNome()+"\n"+"Cognome: "+this.getCognome()+"\n"+"Data di Nascita: "+getNascita();
+        s = "Nome: "+ this.getNome()+"\n"+"Cognome: "+this.getCognome()+"\n"+"Data di Nascita: "+getNascita() + "\nLuogo di Nascita: " + getLuogoNascita();
         return s;
     }
     
@@ -85,6 +90,5 @@ public class Studente {
     
     public int numeroNote (){
         return note.size();
-    }  
-    
+    }   
 }
