@@ -18,6 +18,11 @@ public class SimpleThread extends Thread{
 		while(true){
 			System.out.println(this);
 			if(--countDown == 0 ) return;
+                        try{
+                            sleep(100);
+			}catch(InterruptedException e){
+                            throw new RuntimeException(e);}
+
 		}
 	}
 
