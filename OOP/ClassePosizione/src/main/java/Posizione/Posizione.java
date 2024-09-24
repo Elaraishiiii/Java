@@ -4,6 +4,11 @@ public class Posizione {
     private int LA, LO, AL;
     
     // Costruttori
+    public Posizione (){
+        this.AL = 0;
+        this.LA = 0;
+        this.LO = 0;
+    }
     public Posizione (int LA, int LO, int AL){
         if (LA < 0) this.LA = 0;
         else this.LA = LA;
@@ -12,6 +17,11 @@ public class Posizione {
         else this.LO = LO;
         
         this.AL = AL;
+    }
+    public Posizione (Posizione Due){
+        this.AL = Due.getAL();
+        this.LA = Due.getLA();
+        this.LO = Due.getLO();
     }
     
     // Metodi
