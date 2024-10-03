@@ -31,3 +31,5 @@ public class Disco extends Cerchio{
         return s;
     }
 }
+
+// Voto Verifica 8.5
